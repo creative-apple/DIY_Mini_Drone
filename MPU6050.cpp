@@ -3,8 +3,11 @@
 #include "MPU6050.h"
 
 
+Struct_MPU6050 mpu6050;
+
 void MPU6050_INIT(void)
 { 
+  delay(100);
   /* Check MPU6050 connection */
   uint8_t who_am_i = 0;
   Wire.beginTransmission(MPU6050_ADDR);
@@ -26,6 +29,7 @@ void MPU6050_INIT(void)
       delay(100);
     }
   }
+  delay(100);
 
   /* Factory Reset MPU6050 */
   Wire.beginTransmission(MPU6050_ADDR);
@@ -33,11 +37,14 @@ void MPU6050_INIT(void)
   Wire.write(1<<7);     // set to zero (wakes up the MPU-6050)
   Wire.endTransmission(true);
 
+  delay(100);
   /*wakes up the MPU6050*/
   Wire.beginTransmission(MPU6050_ADDR);
   Wire.write(0x6B);  // PWR_MGMT_1 register
   Wire.write(0);     // set to zero (wakes up the MPU-6050)
   Wire.endTransmission(true);
+
+  delay(100);
 }
 
 void MPU6050_Read_Data(Struct_MPU6050* mpu6050)

@@ -1,5 +1,5 @@
-#ifndef __UART_H__
-#define __UART_H__
+#ifndef __UART_H
+#define __UART_H
 
 
 void print_3_float(float a, float b, float c);

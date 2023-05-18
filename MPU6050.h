@@ -1,5 +1,5 @@
-#ifndef __MPU6050_H__
-#define __MPU6050_H__
+#ifndef __MPU6050_H
+#define __MPU6050_H
 
 
 #define MPU6050_ADDR                  0x68
@@ -22,7 +22,7 @@ typedef struct _MPU6050{
   float gyro_z;
 }Struct_MPU6050;
 
-
+extern Struct_MPU6050 mpu6050;
 
 void MPU6050_INIT(void);
 void MPU6050_Read_Data(Struct_MPU6050* mpu6050);
