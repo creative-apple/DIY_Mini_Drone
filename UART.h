@@ -1,5 +1,5 @@
-#ifndef __MPU6050_H__
-#define __MPU6050_H__
+#ifndef __UART_H__
+#define __UART_H__
 
 
 void print_3_float(float a, float b, float c);
