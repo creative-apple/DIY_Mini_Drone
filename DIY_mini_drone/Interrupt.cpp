@@ -1,50 +1,50 @@
 #include <Arduino.h>
 
-int Timer1_1ms_flag = 0;
-int Timer1_2ms_flag = 0;
-int Timer1_10ms_flag = 0;
-int Timer1_100ms_flag = 0;
-int Timer1_1000ms_flag = 0;
+int Timer2_1ms_flag = 0;
+int Timer2_2ms_flag = 0;
+int Timer2_10ms_flag = 0;
+int Timer2_100ms_flag = 0;
+int Timer2_1000ms_flag = 0;
 
   
-ISR(TIMER1_COMPA_vect)
+ISR(TIMER2_COMPA_vect)
 {
-  static int Timer1_1ms_count = 0;
-  static int Timer1_2ms_count = 0;
-  static int Timer1_10ms_count = 0;
-  static int Timer1_100ms_count = 0;
-  static int Timer1_1000ms_count = 0;
+  static int Timer2_1ms_count = 0;
+  static int Timer2_2ms_count = 0;
+  static int Timer2_10ms_count = 0;
+  static int Timer2_100ms_count = 0;
+  static int Timer2_1000ms_count = 0;
 
-  Timer1_1ms_count += 1;
-  Timer1_2ms_count += 1;
-  Timer1_10ms_count += 1;
-  Timer1_100ms_count += 1;
-  Timer1_1000ms_count += 1;
+  Timer2_1ms_count += 1;
+  Timer2_2ms_count += 1;
+  Timer2_10ms_count += 1;
+  Timer2_100ms_count += 1;
+  Timer2_1000ms_count += 1;
 
-  if(Timer1_1ms_count == 1)
+  if(Timer2_1ms_count == 1)
   {
-    Timer1_1ms_count = 0;
-    Timer1_1ms_flag = 1;
+    Timer2_1ms_count = 0;
+    Timer2_1ms_flag = 1;
   }
 
-  if(Timer1_2ms_count == 2)
+  if(Timer2_2ms_count == 2)
   {
-    Timer1_2ms_count = 0;
-    Timer1_2ms_flag = 1;
+    Timer2_2ms_count = 0;
+    Timer2_2ms_flag = 1;
   }
-  if(Timer1_10ms_count == 10)
+  if(Timer2_10ms_count == 10)
   {
-    Timer1_10ms_count = 0;
-    Timer1_10ms_flag = 1;
+    Timer2_10ms_count = 0;
+    Timer2_10ms_flag = 1;
   }
-  if(Timer1_100ms_count == 100)
+  if(Timer2_100ms_count == 100)
   {
-    Timer1_100ms_count = 0;
-    Timer1_100ms_flag = 1;
+    Timer2_100ms_count = 0;
+    Timer2_100ms_flag = 1;
   }
-  if(Timer1_1000ms_count == 1000)
+  if(Timer2_1000ms_count == 1000)
   {
-    Timer1_1000ms_count = 0;
-    Timer1_1000ms_flag = 1;
+    Timer2_1000ms_count = 0;
+    Timer2_1000ms_flag = 1;
   }
 }
