@@ -31,7 +31,8 @@ void RF24_Rx_Read(void)
       LH = buf[2]<<8 | buf[3];
       RV = buf[4]<<8 | buf[5];
       RH = buf[6]<<8 | buf[7];
-      Serial.println((String) LV + "\t" + LH + "\t" + RV + "\t" + RH);
+      SwA = buf[8]<<8 | buf[9];
+      Serial.println((String) LV + "\t" + LH + "\t" + RV + "\t" + RH + "\t" + SwA);
     }
 }
 
@@ -39,7 +40,7 @@ void RF24_Rx_Read(void)
 bool is_checksum_correct_joystick(uint8_t* buf)
 {
   uint8_t checksum = 0;
-  for(int i=0;i<9;i++)
+  for(int i=0;i<11;i++)
   {
     checksum += buf[i];
   }
