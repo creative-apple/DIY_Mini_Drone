@@ -9,7 +9,7 @@ void RF24_Tx_Init(void)
   const byte address[6] = "00001";
   radio.begin();
   radio.openWritingPipe(address); // 데이터를 보낼 수신의 주소를 설정합니다.
-  radio.setPALevel(RF24_PA_MIN); // 전원공급에 관한 파워레벨을 설정합니다.
+  radio.setPALevel(RF24_PA_MAX); // 전원공급에 관한 파워레벨을 설정합니다.
   radio.stopListening();  //모듈을 송신기로 설정합니다.
   delay(1);
 }

@@ -5,7 +5,7 @@ extern short LV;
 extern short LH;
 extern short RV;
 extern short RH;
-
+extern short SwA;
 
 
 #endif
