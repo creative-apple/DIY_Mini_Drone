@@ -14,6 +14,7 @@ void setup()
   Serial.begin(115200);
   Timer2_Init();
   RF24_Tx_Init();
+
 }
 
 void loop()

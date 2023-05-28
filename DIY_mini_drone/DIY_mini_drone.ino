@@ -7,11 +7,10 @@
 #include "RF24_USER.h"
 #include "JoyStick.h"
 #include "PWM.h"
-#include "EEPROM_USER.h"
 #include "PID_Control.h"
 
-  unsigned char motor_arming_flag = 0;
-  unsigned short iBus_SwA_Prev = 0;
+unsigned char motor_arming_flag = 0;
+unsigned short iBus_SwA_Prev = 0;
 
 void setup()
 {
@@ -20,10 +19,10 @@ void setup()
   Serial.begin(115200);         // UART init
   Serial.println("hello world");
 
-  Timer2_Init();
+//  Timer2_Init();
   
   /* Init Module */
-  MPU6050_INIT();
+//  MPU6050_INIT();
   RF24_Rx_Init();
 
   attachInterrupt(digitalPinToInterrupt(2), RF24_Rx_Read, FALLING);
@@ -43,7 +42,6 @@ void loop()
 ////    Double_Roll_Pitch_PID_Calculation(&pitch, (RV * 1000.f/1023.f -500 ) * 0.04f, Angle.ComFilt_pitch, mpu6050.gyro_x);
 ////    Double_Roll_Pitch_PID_Calculation(&roll,  (RL * 1000.f/1023.f -500 ) * 0.04f, Angle.ComFilt_roll, mpu6050.gyro_y);
 //  }
-
 
 //  if(motor_arming_flag == 1)
 //  {
