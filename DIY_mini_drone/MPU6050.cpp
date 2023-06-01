@@ -5,7 +5,7 @@
 
 Struct_MPU6050 mpu6050;
 
-void MPU6050_INIT(void)
+void MPU6050_Init(void)
 { 
   delay(100);
   /* Check MPU6050 connection */

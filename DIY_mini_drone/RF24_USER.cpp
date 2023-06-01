@@ -16,6 +16,8 @@ void RF24_Rx_Init(void)
   radio.openReadingPipe(0, address_1); //link with joystick
   radio.setPALevel(RF24_PA_MAX); //전원공급에 관한 파워레벨을 설정합니다.
   radio.startListening(); //모듈을 수신기로 설정합니다.
+
+  attachInterrupt(digitalPinToInterrupt(2), RF24_Rx_Read, FALLING);
   delay(1);
 }
 
@@ -30,13 +32,15 @@ void RF24_Rx_Read(void)
 
       LL = buf[2];
       LR = buf[3];
+      
       RL = buf[4];
       RR = buf[5];
       RU = buf[6];
       RD = buf[7];
+      
       SwA = buf[8];
       
-      Serial.println((String)LV + " " + LL + " " + LR + " " + RL + " " + RR + " " + RU + " " + RD + " " + SwA);
+//      Serial.println((String)LV + " " + LL + " " + LR + " " + RL + " " + RR + " " + RU + " " + RD + " " + SwA);
     }
 }
 

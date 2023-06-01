@@ -24,7 +24,7 @@ typedef struct _MPU6050{
 
 extern Struct_MPU6050 mpu6050;
 
-void MPU6050_INIT(void);
+void MPU6050_Init(void);
 void MPU6050_Read_Data(Struct_MPU6050* mpu6050);
 void MPU6050_Convert_Data(Struct_MPU6050* mpu6050);
 #endif
