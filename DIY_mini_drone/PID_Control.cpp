@@ -31,29 +31,7 @@ PIDDouble pitch;
 PIDSingle yaw_heading;
 PIDSingle yaw_rate;
 
-//roll.out.kp = 0;
-//roll.out.ki = 0;
-//roll.out.kd = 0;
-//
-//roll.in.kp = 0;
-//roll.in.ki = 0;
-//roll.in.kd = 0;
-//
-//pitch.out.kp = 0;
-//pitch.out.ki = 0;
-//pitch.out.kd = 0;
-//
-//pitch.in.kp = 0;
-//pitch.in.ki = 0;
-//pitch.in.kd = 0;
-//
-//yaw_heading.kp = 0;
-//yaw_heading.ki = 0;
-//yaw_heading.kd = 0;
-//
-//yaw_rate.kp = 0;
-//yaw_rate.ki = 0;
-//yaw_rate.kd = 0;
+
 
 #define DT 0.002f
 #define OUTER_DERIV_FILT_ENABLE 1
@@ -171,4 +149,32 @@ void Reset_All_PID_Integrator(void)
   Reset_PID_Integrator(&pitch.out);
   Reset_PID_Integrator(&yaw_heading);
   Reset_PID_Integrator(&yaw_rate);
+}
+
+void PID_Gain_Init(void)
+{
+  roll.out.kp = 1;
+  roll.out.ki = 0;
+  roll.out.kd = 0;
+  
+  roll.in.kp = 1;
+  roll.in.ki = 0;
+  roll.in.kd = 0;
+  
+  pitch.out.kp = 1;
+  pitch.out.ki = 0;
+  pitch.out.kd = 0;
+  
+  pitch.in.kp = 1;
+  pitch.in.ki = 0;
+  pitch.in.kd = 0;
+  
+  yaw_heading.kp = 0;
+  yaw_heading.ki = 0;
+  yaw_heading.kd = 0;
+  
+  yaw_rate.kp = 0;
+  yaw_rate.ki = 0;
+  yaw_rate.kd = 0;
+  
 }

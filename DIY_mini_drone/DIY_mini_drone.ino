@@ -10,7 +10,7 @@
 #include "PID_Control.h"
 
 unsigned char motor_arming_flag = 0;
-unsigned short iBus_SwA_Prev = 0;
+unsigned short SwA_Prev = 0;
 
 void setup()
 {
@@ -19,10 +19,10 @@ void setup()
   Serial.begin(115200);         // UART init
   Serial.println("hello world");
 
-//  Timer2_Init();
+  Timer2_Init();
   
   /* Init Module */
-//  MPU6050_INIT();
+  MPU6050_INIT();
   RF24_Rx_Init();
 
   attachInterrupt(digitalPinToInterrupt(2), RF24_Rx_Read, FALLING);
@@ -51,5 +51,21 @@ void loop()
 //    OCR1B = RH/4;
 //  }
 
-  
+  /********************* Motor Arming State ************************/
+    if(SwA == 1 && SwA_Prev == 0)
+    {
+      if(LV < 522)
+      {
+        motor_arming_flag = 1;
+//        yaw_heading_reference = BNO080_Yaw;
+      }
+      else
+      {
+        while(Is_iBus_Throttle_Min() == 0 || iBus.SwA == 2000)
+        {
+ 
+        }
+      }
+    }
+    SwA_Prev = SwA;
 }

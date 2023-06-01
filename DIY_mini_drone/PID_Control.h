@@ -64,6 +64,6 @@ void Single_Yaw_Rate_PID_Calculation(PIDSingle* axis, float set_point, float val
 void Single_Yaw_Heading_PID_Calculation(PIDSingle* axis, float set_point, float angle, float rate);
 void Reset_PID_Integrator(PIDSingle* axis);
 void Reset_All_PID_Integrator(void);
-
+void PID_Gain_Init(void);
 
 #endif /*__PID_CONTROL_H */

@@ -1,11 +1,21 @@
 #ifndef __JOYSTICK_H
 #define __JOYSTICK_H
 
-extern short LV;
-extern short LH;
-extern short RV;
-extern short RH;
-extern short SwA;
+
+extern uint16_t LV;
+
+extern uint8_t LL;
+extern uint8_t LR;
+
+extern uint8_t RU;
+extern uint8_t RD;
+extern uint8_t RL;
+extern uint8_t RR;
+
+extern uint8_t SwA;
+
+
+
 
 void JoyStick_Init(void);
 void JoyStick_Read(void);
